@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:id="@+id/menu">
+
+    <Button
+        android:id="@+id/btn_proyectos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PROYECTOS"
+        android:textSize="15dp"
+        style="@style/Widget.MaterialComponents.Button"
+        android:backgroundTint="@color/black"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="30dp"/>
+
+
+
+    <Button
+        android:id="@+id/btn_tareasPendientes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TAREAS PENDIENTES"
+        android:textSize="15dp"
+        style="@style/Widget.MaterialComponents.Button"
+        android:backgroundTint="@color/black"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/btn_miperfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MI PERFIL"
+        android:textSize="15dp"
+        style="@style/Widget.MaterialComponents.Button"
+        android:backgroundTint="@color/black"
+        android:layout_marginHorizontal="30dp"/>
+
+</LinearLayout>
