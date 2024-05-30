@@ -36,11 +36,13 @@ public class Menu extends AppCompatActivity {
             }
         });
 
-        //TODO pantallas y intents para ir a esas pantallas
-
-
-
-
+        btn_miPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Menu.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 

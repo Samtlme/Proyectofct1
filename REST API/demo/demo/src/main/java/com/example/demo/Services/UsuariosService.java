@@ -20,6 +20,17 @@ public class UsuariosService {
     public Usuarios obtenerUsuarioPorId(Integer id) {
         return usuariosRepository.findById(id).orElse(null);
     }
+    
+    public Usuarios obtenerUsuarioPorNombre(String nombre) {
+    Optional<Usuarios> optionalUsuario = usuariosRepository.findBynombre(nombre);
+
+    if (optionalUsuario.isPresent()) {
+        Usuarios usuario = optionalUsuario.get();
+        return usuario;
+    }
+    return null;
+    
+    }
 
     public Usuarios guardarUsuario(Usuarios usuario) {
         return usuariosRepository.save(usuario);

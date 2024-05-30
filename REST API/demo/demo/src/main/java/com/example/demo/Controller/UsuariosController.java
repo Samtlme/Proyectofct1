@@ -35,7 +35,8 @@ public class UsuariosController {
     public ResponseEntity<String> login(@RequestBody Map<String,String> loginRequest) {
         boolean isAuthenticated = usuariosService.autenticarUsuario(loginRequest.get("user"), loginRequest.get("pass"));
         if (isAuthenticated) {
-            return ResponseEntity.ok("Login exitoso.");
+            Usuarios usuario = usuariosService.obtenerUsuarioPorNombre(loginRequest.get("user"));
+            return ResponseEntity.ok(usuario.getId_usuario().toString());
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login fallido.");
         }

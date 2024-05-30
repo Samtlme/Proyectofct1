@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
@@ -124,6 +126,18 @@ public class TareasActivity extends AppCompatActivity {
         }
 
         //eventos
+
+        lv_tareas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent intent = new Intent(TareasActivity.this, TareaDetalleActivity.class);
+                intent.putExtra("id_tarea", listaTareas.get(position).getId_tarea());
+                startActivity(intent);
+
+            }
+        });
+
 
 
     }

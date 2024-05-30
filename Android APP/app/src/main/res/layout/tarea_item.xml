@@ -5,13 +5,33 @@
     android:layout_gravity="center"
     android:gravity="center"
     android:layout_margin="10dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="5dp"
+    android:id="@+id/LL_tareas">
+
 
     <TextView
         android:id="@+id/tv_tareas_inner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="150dp"
-        android:height="50dp"></TextView>
+        android:maxWidth="200dp"
+        android:ellipsize="end"
+        android:height="60dp"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_weight="2"></TextView>
 
+    <ImageView
+        android:id="@+id/iv_prioridad"
+        android:padding="2dp"
+        android:layout_width="60dp"
+        android:maxWidth="60dp"
+        android:minWidth="60dp"
+        android:layout_weight="1"
+        android:maxHeight="60dp"
+        android:minHeight="60dp"
+        android:layout_height="60dp">
+    </ImageView>
 </LinearLayout>
