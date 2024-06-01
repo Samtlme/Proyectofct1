@@ -168,7 +168,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        //registro
+        Button btn_registrarse = findViewById(R.id.btn_register);
+        btn_registrarse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RegistroActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

@@ -53,7 +53,13 @@ public class AdapterTareas extends BaseAdapter {
         LayoutInflater inflater = LayoutInflater.from(contexto);
         View elemento = inflater.inflate(R.layout.tarea_item, parent, false);
         TextView tituloTarea = elemento.findViewById(R.id.tv_tareas_inner);
-        tituloTarea.setText(tareas.get(position).getNombre_tarea());
+
+        if(tareas.get(position).getEstado().toLowerCase().equals("completada")){
+            tituloTarea.setText("(COMPLETADA) " + tareas.get(position).getNombre_tarea());
+        }else{
+            tituloTarea.setText(tareas.get(position).getNombre_tarea());
+        }
+
 
         SQLiteDatabase db = null;
         try{

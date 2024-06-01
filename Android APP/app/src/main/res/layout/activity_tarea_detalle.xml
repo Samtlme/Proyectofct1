@@ -112,4 +112,23 @@
             android:layout_height="50dp"
             android:layout_weight="1"></TextView>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_iniciarCompletarTarea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="INICIAR TAREA"
+            android:textSize="15dp"
+            style="@style/Widget.MaterialComponents.Button"
+            android:backgroundTint="@color/black"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="30dp"/>
+    </LinearLayout>
+
+
 </LinearLayout>

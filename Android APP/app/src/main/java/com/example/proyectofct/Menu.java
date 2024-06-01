@@ -44,6 +44,14 @@ public class Menu extends AppCompatActivity {
             }
         });
 
+        btn_tareasPendientes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Menu.this, TareasPendientesActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
     }
