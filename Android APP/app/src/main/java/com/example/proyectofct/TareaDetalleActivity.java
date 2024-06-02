@@ -239,6 +239,14 @@ public class TareaDetalleActivity extends AppCompatActivity {
                             });
                         } catch (Exception e) {
                             Log.e("KO", "Error recuperando la tarea del usuario");
+                        }finally{
+                            if (db != null && db.isOpen()) {
+                                try {
+                                    db.close();
+                                } catch (Exception e) {
+                                    Log.e("KO", "error cerrando la BD");
+                                }
+                            }
                         }
                         /////
 
@@ -282,6 +290,14 @@ public class TareaDetalleActivity extends AppCompatActivity {
                             });
                         } catch (Exception e) {
                             Log.e("KO", "Error inicianto las tarea del usuario");
+                        }finally{
+                            if (db != null && db.isOpen()) {
+                                try {
+                                    db.close();
+                                } catch (Exception e) {
+                                    Log.e("KO", "error cerrando la BD");
+                                }
+                            }
                         }
                         /////
                     }
@@ -294,7 +310,13 @@ public class TareaDetalleActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        db.close();
+        if (db != null && db.isOpen()) {
+            try {
+                db.close();
+            } catch (Exception e) {
+                Log.e("KO", "error cerrando la BD");
+            }
+        }
         super.onDestroy();
     }
 }

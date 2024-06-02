@@ -3,6 +3,8 @@ package com.example.proyectofct;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +16,9 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.Insets;
+import androidx.core.os.LocaleListCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
@@ -24,6 +28,7 @@ import com.example.proyectofct.bbdd.prefsDAO;
 import com.example.proyectofct.util.UtilController;
 
 import java.io.IOException;
+import java.util.Locale;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -55,9 +60,8 @@ public class MainActivity extends AppCompatActivity {
             prefsDAO.resetPreferencesIfEmpty(db,getApplicationContext());
 
         }catch(Exception e){
-            Toast.makeText(this, "Error reseteando preferencias.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.error_reseteando_preferencias, Toast.LENGTH_SHORT).show();
         }finally{
-            db.close();
         }
 
         //test debug
@@ -78,6 +82,35 @@ public class MainActivity extends AppCompatActivity {
 //        }finally{
 //            db.close();
 //        }
+
+        //Cargamos idioma
+        try(preferenciasHelper helper = new preferenciasHelper(getApplicationContext())){
+            db = helper.getWritableDatabase();
+            prefsDAO prefsDAO = new prefsDAO();
+            Preferencias prefs = prefsDAO.getPreferences(db,getApplicationContext());
+
+            if(prefs.getLanguage().equalsIgnoreCase("ES")){
+                LocaleListCompat appLocale = LocaleListCompat.forLanguageTags("es-ES");
+                AppCompatDelegate.setApplicationLocales(appLocale);
+                setContentView(R.layout.activity_main);
+            }else if(prefs.getLanguage().equalsIgnoreCase("GA")){
+                LocaleListCompat appLocale = LocaleListCompat.forLanguageTags("gl-ES");
+                AppCompatDelegate.setApplicationLocales(appLocale);
+                setContentView(R.layout.activity_main);
+            }
+
+
+        }catch(Exception e){
+            Toast.makeText(this, R.string.error_reseteando_preferencias, Toast.LENGTH_SHORT).show();
+        }finally{
+            if (db != null && db.isOpen()) {
+                try {
+                    db.close();
+                } catch (Exception e) {
+                    Log.e("KO", "error cerrando la BD");
+                }
+            }
+        }
 
         //navegacion a preferencias
 
@@ -161,7 +194,13 @@ public class MainActivity extends AppCompatActivity {
                 }catch(Exception e){
                     Toast.makeText(MainActivity.this, "Error de login", Toast.LENGTH_SHORT).show();
                 }finally{
-                    db.close();
+                    if (db != null && db.isOpen()) {
+                        try {
+                            db.close();
+                        } catch (Exception e) {
+                            Log.e("KO", "error cerrando la BD");
+                        }
+                    }
                 }
 
 
@@ -178,6 +217,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    @Override
+    protected void onDestroy() {
+        if (db != null && db.isOpen()) {
+            try {
+                db.close();
+            } catch (Exception e) {
+                Log.e("KO", "error cerrando la BD");
+            }
+        }
+        super.onDestroy();
     }
 }

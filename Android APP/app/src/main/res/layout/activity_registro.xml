@@ -16,9 +16,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:hint="Usuario"
+            android:hint="@string/usuario"
             android:layout_marginBottom="20dp"
-            android:maxLength="250">
+            android:maxLength="50">
         </EditText>
         <EditText
             android:id="@+id/et_pass_signup"
@@ -26,9 +26,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:hint="Contraseña"
+            android:hint="@string/contrasena"
             android:inputType="textPassword"
-            android:maxLength="250"
+            android:maxLength="50"
             android:layout_marginBottom="20dp">
         </EditText>
         <EditText
@@ -37,9 +37,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:hint="Repita ontraseña"
+            android:hint="@string/repita_contrasena"
             android:inputType="textPassword"
-            android:maxLength="250"
+            android:maxLength="50"
             android:layout_marginBottom="20dp">
         </EditText>
     </LinearLayout>
@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.3"
-            android:text="REGISTRARSE"
+            android:text="@string/registrarse"
             android:textSize="15dp"
             style="@style/Widget.MaterialComponents.Button"
             android:backgroundTint="@color/black"
@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.3"
-            android:text="CANCELAR"
+            android:text="@string/cancelar"
             android:textSize="15dp"
             style="@style/Widget.MaterialComponents.Button"
             android:backgroundTint="@color/black"

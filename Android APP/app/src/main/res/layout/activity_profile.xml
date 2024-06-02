@@ -4,24 +4,64 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical"
     android:id="@+id/profile">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="50dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="Nombre"
+            android:text="@string/mi_perfil"
+            android:textColor="@color/white"
+            android:background="@color/material_dynamic_neutral10"
             android:textStyle="bold"
-            android:textSize="25dp"
-            android:gravity="left"
-            android:layout_margin="10dp"></TextView>
+            android:textSize="30dp"
+            android:gravity="center_horizontal"></TextView>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="50dp">
+
+        <TextView
+            android:id="@+id/tv_profile_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:textSize="60sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/circle_background" />
         <TextView
             android:id="@+id/tvPerfilNombre"
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"></TextView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="@string/puntos_totales"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:gravity="left"></TextView>
+        <TextView
+            android:id="@+id/tvPerfilPuntos"
             android:layout_width="match_parent"
             android:textStyle="bold"
             android:textSize="20dp"
@@ -31,34 +71,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_margin="10dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="Puntos totales"
-            android:textStyle="bold"
-            android:textSize="25dp"
-            android:gravity="left"></TextView>
-        <TextView
-            android:id="@+id/tvPerfilPuntos"
-            android:layout_width="match_parent"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"></TextView>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="10dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text="Rol"
+            android:text="@string/rol"
             android:textStyle="bold"
             android:textSize="25dp"
             android:gravity="left"></TextView>
@@ -66,7 +85,7 @@
             android:id="@+id/tvPerfilRol"
             android:layout_width="match_parent"
             android:textStyle="bold"
-            android:textSize="18dp"
+            android:textSize="20dp"
             android:layout_height="50dp"
             android:layout_weight="1"></TextView>
     </LinearLayout>

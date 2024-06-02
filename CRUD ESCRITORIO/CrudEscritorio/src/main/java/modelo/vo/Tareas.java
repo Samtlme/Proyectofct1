@@ -81,7 +81,7 @@ public class Tareas {
 
     @Override
     public String toString() {
-        return "Tareas{" + "id_tarea=" + id_tarea + ", proyecto=" + proyecto + ", nombre_tarea=" + nombre_tarea + ", descripcion=" + descripcion + ", estado=" + estado + ", puntos_tarea=" + puntos_tarea + ", prioridad_tarea=" + prioridad_tarea + '}';
+        return "" + id_tarea +" || "+ proyecto + " |||| " + nombre_tarea + " |||| " + descripcion + " |||| " + estado + " || " + puntos_tarea + " || " + prioridad_tarea;
     }
     
     

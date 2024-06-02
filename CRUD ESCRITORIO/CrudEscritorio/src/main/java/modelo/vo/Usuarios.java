@@ -68,7 +68,7 @@ public class Usuarios {
 
     @Override
     public String toString() {
-        return "Usuarios{" + "id_usuario=" + id_usuario + ", nombre_usuario=" + nombre_usuario + ", contrasena=" + contrasena + ", puntos_totales=" + puntos_totales + ", rol=" + rol + '}';
+        return "" + id_usuario + " || " + nombre_usuario + " || " + contrasena + " || " + puntos_totales + " || " + rol;
     }
     
     

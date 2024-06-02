@@ -1,7 +1,11 @@
 package com.example.proyectofct;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,13 +16,20 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.Insets;
+import androidx.core.os.LocaleListCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.proyectofct.bbdd.entities.Preferencias;
 import com.example.proyectofct.bbdd.preferenciasHelper;
 import com.example.proyectofct.bbdd.prefsDAO;
+import com.example.proyectofct.util.UtilController;
+
+import java.util.Locale;
+
+import okhttp3.internal.Util;
 
 public class OpcionesActivity extends AppCompatActivity {
 
@@ -46,7 +57,13 @@ public class OpcionesActivity extends AppCompatActivity {
         }catch(Exception e){
             Toast.makeText(this, "Error recuperando preferencias.", Toast.LENGTH_SHORT).show();
         }finally{
-            db.close();
+            if (db != null && db.isOpen()) {
+                try {
+                    db.close();
+                } catch (Exception e) {
+                    Log.e("KO", "error cerrando la BD");
+                }
+            }
         }
 
         EditText et_ip = findViewById(R.id.et_IP);
@@ -59,7 +76,7 @@ public class OpcionesActivity extends AppCompatActivity {
         Spinner spinnerIdioma = findViewById(R.id.spinner_idioma);
         String[] spinnerOptions = {"Castellano", "Galego"};
         ArrayAdapter<String> adapter_idioma = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item,
+                android.R.layout.simple_spinner_dropdown_item,
                 spinnerOptions);
         spinnerIdioma.setAdapter(adapter_idioma);
 
@@ -100,12 +117,32 @@ public class OpcionesActivity extends AppCompatActivity {
                     prefs.setPort(et_port.getText().toString());
                     prefsDAO prefsdao = new prefsDAO();
                     prefsdao.setPreferences(db,getApplicationContext(),prefs);
-                    finish();
+                    //finish();
 
+                    // Cambiar el idioma
+                    if(prefs.getLanguage().toUpperCase().equals("ES")){
+                        LocaleListCompat appLocale = LocaleListCompat.forLanguageTags("es-ES");
+                        AppCompatDelegate.setApplicationLocales(appLocale);
+                        Intent intent = getIntent();
+                        finish();
+                        startActivity(intent);
+                    }else if(prefs.getLanguage().toUpperCase().equals("GA")){
+                        LocaleListCompat appLocale = LocaleListCompat.forLanguageTags("gl-ES");
+                        AppCompatDelegate.setApplicationLocales(appLocale);
+                        Intent intent = getIntent();
+                        finish();
+                        startActivity(intent);
+                    }
                 }catch(Exception e){
-                    Toast.makeText(OpcionesActivity.this, "Error guardando preferencias.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OpcionesActivity.this, R.string.error_guardando_preferencias, Toast.LENGTH_SHORT).show();
                 }finally{
-                    db.close();
+                    if (db != null && db.isOpen()) {
+                        try {
+                            db.close();
+                        } catch (Exception e) {
+                            Log.e("KO", "error cerrando la BD");
+                        }
+                    }
                     finish();
                 }
             }
@@ -129,11 +166,35 @@ public class OpcionesActivity extends AppCompatActivity {
                 }catch(Exception e){
                     Toast.makeText(OpcionesActivity.this, "Error reseteando preferencias.", Toast.LENGTH_SHORT).show();
                 }finally{
-                    db.close();
+                    if (db != null && db.isOpen()) {
+                        try {
+                            db.close();
+                        } catch (Exception e) {
+                            Log.e("KO", "error cerrando la BD");
+                        }
+                    }
                     finish();
                 }
             }
         });
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (db != null && db.isOpen()) {
+            try {
+                if (db != null && db.isOpen()) {
+                    try {
+                        db.close();
+                    } catch (Exception e) {
+                        Log.e("KO", "error cerrando la BD");
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        super.onDestroy();
     }
 }

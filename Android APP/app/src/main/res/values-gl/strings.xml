@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ProyectoFCT</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasena">Contrasinal</string>
+    <string name="login">LOGIN</string>
+    <string name="registrarse">REXISTRARSE</string>
+    <string name="opciones">OPCIÓNS</string>
+    <string name="proyectos">PROXECTOS</string>
+    <string name="tareas_pendientes">TAREFAS PENDENTES</string>
+    <string name="mi_perfil">MEU PERFIL</string>
+    <string name="ip_p_e_127_0_0_1">IP (P.E. 127.0.0.1)</string>
+    <string name="puerto_p_e_8080">Porto (P.E. 8080)</string>
+    <string name="idioma">IDIOMA</string>
+    <string name="cancelar">CANCELAR</string>
+    <string name="aceptar">ACEPTAR</string>
+    <string name="valores_por_defecto">VALORES POR DEFECTO</string>
+    <string name="nombre">Nome</string>
+    <string name="puntos_totales">Puntos totáis</string>
+    <string name="rol">rol</string>
+    <string name="repita_contrasena">Repita o contrasinal</string>
+    <string name="tarea">TAREFA</string>
+    <string name="descripcion">DESCRICIÓN</string>
+    <string name="estado">ESTADO</string>
+    <string name="puntos">PUNTOS</string>
+    <string name="prioridad">PRIORIDADE</string>
+    <string name="iniciar_tarea">INICIAR TAREFA</string>
+    <string name="error_guardando_preferencias">Erro gardando preferencias.</string>
+    <string name="error_reseteando_preferencias">Erro restablecendo preferencias.</string>
+    <string name="atras">ATRÁS</string>
+    <string name="menu">MENU</string>
+    <string name="tareas">TAREFAS</string>
+</resources>

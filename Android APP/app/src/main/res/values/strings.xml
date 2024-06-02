@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">ProyectoFCT</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="login">LOGIN</string>
+    <string name="registrarse">REGISTRARSE</string>
+    <string name="opciones">OPCIONES</string>
+    <string name="proyectos">PROYECTOS</string>
+    <string name="tareas_pendientes">TAREAS PENDIENTES</string>
+    <string name="mi_perfil">MI PERFIL</string>
+    <string name="ip_p_e_127_0_0_1">IP (P.E. 127.0.0.1)</string>
+    <string name="puerto_p_e_8080">Puerto (P.E. 8080)</string>
+    <string name="idioma">IDIOMA</string>
+    <string name="cancelar">CANCELAR</string>
+    <string name="aceptar">ACEPTAR</string>
+    <string name="valores_por_defecto">VALORES POR DEFECTO</string>
+    <string name="nombre">Nombre</string>
+    <string name="puntos_totales">Puntos totales</string>
+    <string name="rol">Rol</string>
+    <string name="repita_contrasena">Repita contraseña</string>
+    <string name="tarea">TAREA</string>
+    <string name="descripcion">DESCRIPCIÓN</string>
+    <string name="estado">ESTADO</string>
+    <string name="puntos">PUNTOS</string>
+    <string name="prioridad">PRIORIDAD</string>
+    <string name="iniciar_tarea">INICIAR TAREA</string>
+    <string name="error_guardando_preferencias">Error guardando preferencias.</string>
+    <string name="error_reseteando_preferencias">Error reseteando preferencias.</string>
+    <string name="atras">ATRÁS</string>
+    <string name="menu">MENU</string>
+    <string name="tareas">TAREAS</string>
 </resources>

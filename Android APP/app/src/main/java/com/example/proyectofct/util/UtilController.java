@@ -1,11 +1,15 @@
 package com.example.proyectofct.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.proyectofct.bbdd.entities.Preferencias;
 import com.example.proyectofct.bbdd.prefsDAO;
+
+import java.util.Locale;
 
 public class UtilController {
 

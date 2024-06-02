@@ -114,7 +114,13 @@ public class TareasActivity extends AppCompatActivity {
                     catch (JSONException jsonex){
                         Log.e("KO", "Error de JSON en tareas");
                     }finally{
-                        db.close();
+                        if (db != null && db.isOpen()) {
+                            try {
+                                db.close();
+                            } catch (Exception e) {
+                                Log.e("KO", "error cerrando la BD");
+                            }
+                        }
                     }
 
                 }
@@ -123,6 +129,14 @@ public class TareasActivity extends AppCompatActivity {
 
         }catch (Exception e){
             Log.e("KO","Error recuperando las tareas del proyecto");
+        }finally{
+            if (db != null && db.isOpen()) {
+                try {
+                    db.close();
+                } catch (Exception e) {
+                    Log.e("KO", "error cerrando la BD");
+                }
+            }
         }
 
         //eventos
@@ -134,11 +148,19 @@ public class TareasActivity extends AppCompatActivity {
                 Intent intent = new Intent(TareasActivity.this, TareaDetalleActivity.class);
                 intent.putExtra("id_tarea", listaTareas.get(position).getId_tarea());
                 startActivity(intent);
-
             }
         });
+    }
 
-
-
+    @Override
+    protected void onDestroy() {
+        if (db != null && db.isOpen()) {
+            try {
+                db.close();
+            } catch (Exception e) {
+                Log.e("KO", "error cerrando la BD");
+            }
+        }
+        super.onDestroy();
     }
 }

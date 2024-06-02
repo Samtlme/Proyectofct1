@@ -64,6 +64,12 @@ public class RegistroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if(et_reg_pass.getText().toString().length() < 3 ||
+                        et_red_rpass.getText().toString().length() < 3 ||
+                        et_reg_user.getText().toString().length() < 3){
+                    Toast.makeText(RegistroActivity.this, "Ningun campo debe tener menos de 3 caracteres.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if(et_reg_pass.getText().toString().equals(et_red_rpass.getText().toString())){
                     try{
 
@@ -88,7 +94,7 @@ public class RegistroActivity extends AppCompatActivity {
                         client.newCall(request).enqueue(new Callback() {
                             @Override
                             public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                                Log.e("ERROR", "No se pudo conectar." + e.toString());
+                                Log.e("ERROR", "No se pudo conectar registro." + e.toString());
                             }
 
                             @Override
@@ -98,6 +104,7 @@ public class RegistroActivity extends AppCompatActivity {
                                         @Override
                                         public void run() {
                                             Toast.makeText(RegistroActivity.this, "Usuario registrado!", Toast.LENGTH_SHORT).show();
+                                            finish();
                                         }
                                     });
                                     Log.d("OK", "Registrado exitosamente!");
@@ -125,10 +132,23 @@ public class RegistroActivity extends AppCompatActivity {
                     }catch(Exception e){
                         Toast.makeText(RegistroActivity.this, "Error de registro", Toast.LENGTH_SHORT).show();
                     }finally{
-                        db.close();
+                        if (db != null && db.isOpen()) {
+                            try {
+                                db.close();
+                            } catch (Exception e) {
+                                Log.e("KO", "error cerrando la BD");
+                            }
+                        }
                     }
                 }else{
                     Toast.makeText(RegistroActivity.this, "Las contraseñas no coinciden.", Toast.LENGTH_SHORT).show();
+                    if (db != null && db.isOpen()) {
+                        try {
+                            db.close();
+                        } catch (Exception e) {
+                            Log.e("KO", "error cerrando la BD");
+                        }
+                    }
                 }
 
             }
@@ -137,7 +157,13 @@ public class RegistroActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        db.close();
+        if (db != null && db.isOpen()) {
+            try {
+                db.close();
+            } catch (Exception e) {
+                Log.e("KO", "error cerrando la BD");
+            }
+        }
         super.onDestroy();
     }
 }

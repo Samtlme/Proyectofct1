@@ -89,7 +89,13 @@ public class AdapterTareas extends BaseAdapter {
         }catch(Exception e){
             Log.e("KO", "Error asignando icono");
         }finally{
-            db.close();
+            if (db != null && db.isOpen()) {
+                try {
+                    db.close();
+                } catch (Exception e) {
+                    Log.e("KO", "error cerrando la BD");
+                }
+            }
         }
 
         return elemento;

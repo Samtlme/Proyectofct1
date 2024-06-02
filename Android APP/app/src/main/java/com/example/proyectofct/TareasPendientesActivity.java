@@ -114,7 +114,13 @@ public class TareasPendientesActivity extends AppCompatActivity {
                     catch (JSONException jsonex){
                         Log.e("KO", "Error de JSON en tareas usuario");
                     }finally{
-                        db.close();
+                        if (db != null && db.isOpen()) {
+                            try {
+                                db.close();
+                            } catch (Exception e) {
+                                Log.e("KO", "error cerrando la BD");
+                            }
+                        }
                     }
 
                 }
@@ -124,7 +130,13 @@ public class TareasPendientesActivity extends AppCompatActivity {
         }catch (Exception e){
             Log.e("KO","Error recuperando las tareas del usuario");
         }finally{
-            db.close();
+            if (db != null && db.isOpen()) {
+                try {
+                    db.close();
+                } catch (Exception e) {
+                    Log.e("KO", "error cerrando la BD");
+                }
+            }
         }
 
         //eventos
@@ -139,7 +151,17 @@ public class TareasPendientesActivity extends AppCompatActivity {
 
             }
         });
+    }
 
-
+    @Override
+    protected void onDestroy() {
+        if (db != null && db.isOpen()) {
+            try {
+                db.close();
+            } catch (Exception e) {
+                Log.e("KO", "error cerrando la BD");
+            }
+        }
+        super.onDestroy();
     }
 }

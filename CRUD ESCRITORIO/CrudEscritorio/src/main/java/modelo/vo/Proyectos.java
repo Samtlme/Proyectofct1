@@ -62,7 +62,7 @@ public class Proyectos {
 
     @Override
     public String toString() {
-        return "Proyectos{" + "id_proyecto=" + id_proyecto + ", nombre_proyecto=" + nombre_proyecto + ", descripcion=" + descripcion + ", fecha_inicio=" + fecha_inicio + ", fecha_fin=" + fecha_fin + '}';
+        return "" + id_proyecto + " || " + nombre_proyecto + " |||| " +  descripcion + " |||| " + fecha_inicio +" || "+ fecha_fin;
     }
     
     

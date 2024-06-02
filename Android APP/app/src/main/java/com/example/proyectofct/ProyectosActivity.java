@@ -131,7 +131,13 @@ public class ProyectosActivity extends AppCompatActivity {
                     catch (JSONException jsonex){
                         Log.e("KO", "Error de JSON");
                     }finally{
-                        db.close();
+                        if (db != null && db.isOpen()) {
+                            try {
+                                db.close();
+                            } catch (Exception e) {
+                                Log.e("KO", "error cerrando la BD");
+                            }
+                        }
                     }
 
 
@@ -154,19 +160,17 @@ public class ProyectosActivity extends AppCompatActivity {
             }
         });
 
-        Button btn_test = findViewById(R.id.btn_test);
-        btn_test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //ListView lv_proyectos = findViewById(R.id.lv_proyectos);
-                AdapterProyectos adapterproyectos = new AdapterProyectos(getApplicationContext(),listaProyectos);
-                lv_proyectos.setAdapter(adapterproyectos);
-                adapterproyectos.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (db != null && db.isOpen()) {
+            try {
+                db.close();
+            } catch (Exception e) {
+                Log.e("KO", "error cerrando la BD");
             }
-        });
-
-
-
-
+        }
+        super.onDestroy();
     }
 }

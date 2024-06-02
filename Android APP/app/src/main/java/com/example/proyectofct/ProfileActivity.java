@@ -51,6 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
         TextView tv_nombre_perfil = findViewById(R.id.tvPerfilNombre);
         TextView tv_puntos_perfil = findViewById(R.id.tvPerfilPuntos);
         TextView tv_rol_perfil = findViewById(R.id.tvPerfilRol);
+        TextView tv_profile_img = findViewById(R.id.tv_profile_image);
 
         /////
         try{
@@ -89,6 +90,7 @@ public class ProfileActivity extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                tv_profile_img.setText(String.valueOf(usuario.getNombre().charAt(0)));
                                 tv_nombre_perfil.setText(usuario.getNombre());
                                 tv_puntos_perfil.setText(usuario.getPuntos_totales().toString());
 
@@ -108,7 +110,13 @@ public class ProfileActivity extends AppCompatActivity {
                     } catch (JSONException jsonex) {
                         Log.e("KO", "Error de JSON en perfil.");
                     } finally {
-                        db.close();
+                        if (db != null && db.isOpen()) {
+                            try {
+                                db.close();
+                            } catch (Exception e) {
+                                Log.e("KO", "error cerrando la BD");
+                            }
+                        }
                     }
                 }
             });
@@ -116,12 +124,26 @@ public class ProfileActivity extends AppCompatActivity {
         }catch(Exception e){
             Toast.makeText(ProfileActivity.this, "Error de login perfil", Toast.LENGTH_SHORT).show();
         }finally{
-            db.close();
+            if (db != null && db.isOpen()) {
+                try {
+                    db.close();
+                } catch (Exception e) {
+                    Log.e("KO", "error cerrando la BD");
+                }
+            }
         }
 
-        /////
+    }
 
-
-
+    @Override
+    protected void onDestroy() {
+        if (db != null && db.isOpen()) {
+            try {
+                db.close();
+            } catch (Exception e) {
+                Log.e("KO", "error cerrando la BD");
+            }
+        }
+        super.onDestroy();
     }
 }

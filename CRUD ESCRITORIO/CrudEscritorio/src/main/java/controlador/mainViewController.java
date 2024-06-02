@@ -509,6 +509,8 @@ public class mainViewController {
             JOptionPane.showMessageDialog(null, "Proyecto actualizado exitosamente.");
         }catch (NumberFormatException nfe){
             JOptionPane.showMessageDialog(null, "El campo Id proyecto debe contener un valor numérico.");
+        }catch (DateTimeParseException dtpe) {
+            JOptionPane.showMessageDialog(null,"Formato de fecha Incorrecto.El formato debe ser AAAA-MM-DD");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error actualizando proyecto");
         } finally {
@@ -594,12 +596,14 @@ public class mainViewController {
             return;
         }
         
-        if(ventanaEditUser.getTf_nombreUsuario().getText().length() >= 250){
-            JOptionPane.showMessageDialog(null, "El nombre es demasiado largo.");
+        if(ventanaEditUser.getTf_nombreUsuario().getText().length() > 50 ||
+                ventanaEditUser.getTf_nombreUsuario().getText().length() < 3){
+            JOptionPane.showMessageDialog(null, "El nombre tiene longitud incorrecta. (min 3, max 50)");
             return;
         }
-        if(ventanaEditUser.getTf_contrasenaUsuario().getText().length() >= 250){
-            JOptionPane.showMessageDialog(null, "La contraseña es demasiado larga.");
+        if(ventanaEditUser.getTf_contrasenaUsuario().getText().length() > 50 ||
+                ventanaEditUser.getTf_contrasenaUsuario().getText().length() < 3){
+            JOptionPane.showMessageDialog(null, "La contraseña tiene longitud incorrecta. (min 3, max 50)");
             return;
         }
         
@@ -711,12 +715,14 @@ public class mainViewController {
             return;
         }
         
-        if(ventanaEditUser.getTf_nombreUsuario().getText().length() >= 250){
-            JOptionPane.showMessageDialog(null, "El nombre es demasiado largo.");
+        if(ventanaEditUser.getTf_nombreUsuario().getText().length() > 50 ||
+                ventanaEditUser.getTf_nombreUsuario().getText().length() < 3){
+            JOptionPane.showMessageDialog(null, "El nombre tiene longitud incorrecta. (min 3, max 50)");
             return;
         }
-        if(ventanaEditUser.getTf_contrasenaUsuario().getText().length() >= 250){
-            JOptionPane.showMessageDialog(null, "La contraseña es demasiado larga.");
+        if(ventanaEditUser.getTf_contrasenaUsuario().getText().length() > 50 ||
+                ventanaEditUser.getTf_contrasenaUsuario().getText().length() < 3){
+            JOptionPane.showMessageDialog(null, "La contraseña tiene longitud incorrecta. (min 3, max 50)");
             return;
         }
         

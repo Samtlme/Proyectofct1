@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.proyectofct.R;
 import com.example.proyectofct.bbdd.entities.Preferencias;
+import com.example.proyectofct.util.UtilController;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -98,7 +99,6 @@ public class prefsDAO {
 
         long newRowId = db.insert(preferenciasContract.PreferenciasTabla.TABLE_NAME,
                 null, valores);
-
     }
 
     public String encodeImageToBase64(Context context, int imageId) {
