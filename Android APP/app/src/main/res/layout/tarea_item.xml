@@ -17,7 +17,7 @@
         android:minWidth="150dp"
         android:maxWidth="200dp"
         android:ellipsize="end"
-        android:height="60dp"
+        android:height="80dp"
         android:textSize="18dp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -30,8 +30,8 @@
         android:maxWidth="60dp"
         android:minWidth="60dp"
         android:layout_weight="1"
-        android:maxHeight="60dp"
-        android:minHeight="60dp"
-        android:layout_height="60dp">
+        android:maxHeight="80dp"
+        android:minHeight="80dp"
+        android:layout_height="80dp">
     </ImageView>
 </LinearLayout>

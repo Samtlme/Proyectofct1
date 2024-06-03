@@ -9,8 +9,7 @@
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginBottom="50dp">
+        android:gravity="center">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -27,7 +26,9 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginBottom="50dp">
+        android:layout_marginBottom="50dp"
+        android:paddingTop="50dp"
+        android:background="@color/material_dynamic_neutral95">
 
         <TextView
             android:id="@+id/tv_profile_image"

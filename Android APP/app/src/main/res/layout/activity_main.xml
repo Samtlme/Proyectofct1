@@ -7,11 +7,12 @@
     android:layout_marginTop="46dp"
     android:id="@+id/main">
 
+
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginBottom="200dp">
+        android:layout_marginBottom="70dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -23,6 +24,23 @@
             android:textSize="25dp"
             android:gravity="center_horizontal"></TextView>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginBottom="70dp"
+        android:padding="10dp"
+        android:background="@color/material_dynamic_neutral90">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            app:srcCompat="@drawable/user_solid" />
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

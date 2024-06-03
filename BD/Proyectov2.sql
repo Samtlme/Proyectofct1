@@ -61,12 +61,13 @@ INSERT INTO Proyectos (nombre_proyecto, descripcion, fecha_inicio, fecha_fin) VA
 ('PFC real', 'Pensado para terminar en el futuro', '2024-04-10', '2024-06-30'),
 ('Sistema de gestión', 'Sistema para gestionar tareas y proyectos', '2024-05-01', NULL),
 ('Aplicación móvil', 'Desarrollo de una app móvil', '2024-05-15', '2024-07-15'),
-('Página web', 'Desarrollo de una página web corporativa', '2024-06-01', NULL);
+('Página web', 'Desarrollo de una página web corporativa', '2024-06-01', NULL),
+('Traducciones de la aplicación', 'Traducir las cadenas de texto de la sección de opciones y login', '2024-06-01', NULL);
 
 INSERT INTO Tareas (idproyecto, nombre_tarea, descripcion, estado, puntos_tarea, prioridad_tarea) VALUES
-(1, 'Tarea 1', 'Descripción de la Tarea 1', 'pendiente', 10, 'A'),
-(1, 'Tarea 2', 'Descripción de la Tarea 2', 'pendiente', 20, 'B'),
-(2, 'Diseñar la BD', 'Descripción de la Tarea 3', 'completada', 15, 'B'),
+(1, 'Revisar Documentación', 'Revisar la documentación del proyecto y corregir errores.', 'pendiente', 10, 'A'),
+(1, 'Implementar Funcionalidad', 'Desarrollar y probar la nueva funcionalidad solicitada.', 'pendiente', 20, 'B'),
+(2, 'Diseñar la BD', 'Crear el esquema y diseño de la base de datos del proyecto.', 'completada', 15, 'B'),
 (2, 'API fase 1', 'Diseñar la versión inicial de la API', 'completada', 30, 'S'),
 (2, 'API fase 2', 'Implementar funcionalidades', 'pendiente', 30, 'S'),
 (3, 'Reunión inicial', 'Primera reunión para definir el proyecto', 'pendiente', 5, 'A'),
@@ -77,7 +78,9 @@ INSERT INTO Tareas (idproyecto, nombre_tarea, descripcion, estado, puntos_tarea,
 (5, 'Reunión con cliente', 'Reunión inicial con el cliente', 'pendiente', 10, 'B'),
 (5, 'Definir estructura', 'Definir la estructura del sitio web', 'pendiente', 15, 'A'),
 (5, 'Desarrollo HTML/CSS', 'Desarrollar la parte estática del sitio', 'pendiente', 20, 'S'),
-(5, 'Integración con backend', 'Integrar la lógica de negocio con el frontend', 'pendiente', 25, 'S');
+(5, 'Integración con backend', 'Integrar la lógica de negocio con el frontend', 'pendiente', 25, 'S'),
+(6, 'Traducir las strings de opciones', 'Traducir las strings del opciones al gallego y al ruso', 'pendiente', 20, 'B'),
+(6, 'Traducir las strings de login', 'Traducir las strings del login al gallego y al ruso', 'pendiente', 30, 'A');
 
 
 INSERT INTO Asignaciones (id_usuario, id_tarea) VALUES
@@ -96,3 +99,4 @@ INSERT INTO Asignaciones (id_usuario, id_tarea) VALUES
 (7, 13),
 (7, 14),
 (8, 14);
+

@@ -166,11 +166,11 @@ public class TareaDetalleActivity extends AppCompatActivity {
                                         listaTareasPendientesUsuario.add(tarea);
                                     }
 
-                                    btn_iniciarCompletarTarea.setText("INICIAR TAREA");
+                                    btn_iniciarCompletarTarea.setText("INICIAR");
 
                                     for (Tareas item : listaTareasPendientesUsuario) {
                                         if(item.getId_tarea() == tarea.getId_tarea()){
-                                            btn_iniciarCompletarTarea.setText("COMPLETAR TAREA");
+                                            btn_iniciarCompletarTarea.setText("COMPLETAR");
                                         }
                                     }
 
@@ -199,7 +199,7 @@ public class TareaDetalleActivity extends AppCompatActivity {
                     Toast.makeText(TareaDetalleActivity.this, "La tarea ya se encuentra completada!", Toast.LENGTH_SHORT).show();
                 }else {
 
-                    if (btn_iniciarCompletarTarea.getText().toString().toUpperCase().contains("COMPLET")) {
+                    if (btn_iniciarCompletarTarea.getText().toString().toUpperCase().contains("COMPLE")) {
                         /////
                         try {
                             preferenciasHelper helper = new preferenciasHelper(getApplicationContext());

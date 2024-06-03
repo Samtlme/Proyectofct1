@@ -51,7 +51,7 @@
         <Button
             android:id="@+id/btn_registro_confirmar"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="60dp"
             android:layout_weight="0.3"
             android:text="@string/registrarse"
             android:textSize="15dp"
@@ -63,7 +63,7 @@
         <Button
             android:id="@+id/btn_registro_cancelar"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="60dp"
             android:layout_weight="0.3"
             android:text="@string/cancelar"
             android:textSize="15dp"
