@@ -306,7 +306,12 @@ public class mainViewController {
             ventanaEditProject.getTf_nombreProyecto().setText(""+proyecto.getNombre_proyecto());
             ventanaEditProject.getTf_descripcionProyecto().setText(""+proyecto.getDescripcion());
             ventanaEditProject.getTf_fechaInProyecto().setText(""+proyecto.getFecha_inicio());
-            ventanaEditProject.getTf_fechaFinProyecto().setText(""+proyecto.getFecha_fin());
+            if (proyecto.getFecha_fin() != null){
+                ventanaEditProject.getTf_fechaFinProyecto().setText(""+proyecto.getFecha_fin());
+            }else{
+                ventanaEditProject.getTf_fechaFinProyecto().setText("");
+            }
+
         }
         ventanaEditProject.setModal(true);
         ventanaEditProject.setVisible(true);
@@ -607,7 +612,7 @@ public class mainViewController {
             return;
         }
         
-        if(ventanaEditUser.getTf_puntosUsuario().getText().length() >= 5 ||
+        if(ventanaEditUser.getTf_puntosUsuario().getText().length() > 5 ||
                 ventanaEditUser.getTf_puntosUsuario().getText().contains("-") ||
                 ventanaEditUser.getTf_puntosUsuario().getText().contains(".") ||
                 ventanaEditUser.getTf_puntosUsuario().getText().contains(",")){
@@ -726,7 +731,7 @@ public class mainViewController {
             return;
         }
         
-        if(ventanaEditUser.getTf_puntosUsuario().getText().length() >= 5 ||
+        if(ventanaEditUser.getTf_puntosUsuario().getText().length() > 5 ||
                 ventanaEditUser.getTf_puntosUsuario().getText().contains("-") ||
                 ventanaEditUser.getTf_puntosUsuario().getText().contains(".") ||
                 ventanaEditUser.getTf_puntosUsuario().getText().contains(",")){
