@@ -1,94 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    android:id="@+id/profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/profile">
+    android:orientation="vertical">
 
-    <LinearLayout android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_weight="1"
+            android:background="@color/material_dynamic_neutral10"
+            android:gravity="center_horizontal"
             android:text="@string/mi_perfil"
             android:textColor="@color/white"
-            android:background="@color/material_dynamic_neutral10"
-            android:textStyle="bold"
             android:textSize="30dp"
-            android:gravity="center_horizontal"></TextView>
+            android:textStyle="bold"></TextView>
     </LinearLayout>
 
-    <LinearLayout android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
         android:layout_marginBottom="50dp"
-        android:paddingTop="50dp"
-        android:background="@color/material_dynamic_neutral95">
+        android:background="@color/material_dynamic_neutral95"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="50dp">
 
         <TextView
             android:id="@+id/tv_profile_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:background="@drawable/circle_background"
             android:gravity="center"
-            android:textSize="60sp"
             android:textColor="@android:color/white"
-            android:background="@drawable/circle_background" />
+            android:textSize="60sp" />
+
         <TextView
             android:id="@+id/tvPerfilNombre"
             android:layout_width="match_parent"
-            android:textStyle="bold"
-            android:textSize="20dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:gravity="center"></TextView>
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textStyle="bold"></TextView>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_weight="1"
+            android:gravity="left"
             android:text="@string/puntos_totales"
-            android:textStyle="bold"
             android:textSize="25dp"
-            android:gravity="left"></TextView>
+            android:textStyle="bold"></TextView>
+
         <TextView
             android:id="@+id/tvPerfilPuntos"
             android:layout_width="match_parent"
-            android:textStyle="bold"
-            android:textSize="20dp"
             android:layout_height="50dp"
-            android:layout_weight="1"></TextView>
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:textStyle="bold"></TextView>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_weight="1"
+            android:gravity="left"
             android:text="@string/rol"
-            android:textStyle="bold"
             android:textSize="25dp"
-            android:gravity="left"></TextView>
+            android:textStyle="bold"></TextView>
+
         <TextView
             android:id="@+id/tvPerfilRol"
             android:layout_width="match_parent"
-            android:textStyle="bold"
-            android:textSize="20dp"
             android:layout_height="50dp"
-            android:layout_weight="1"></TextView>
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:textStyle="bold"></TextView>
     </LinearLayout>
 
 </LinearLayout>
