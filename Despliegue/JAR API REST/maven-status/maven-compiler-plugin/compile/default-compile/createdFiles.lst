@@ -1,0 +1,13 @@
+com\example\demo\Repositories\ProyectosRepository.class
+com\example\demo\DemoApplication.class
+com\example\demo\Services\TareasService.class
+com\example\demo\Repositories\TareasRepository.class
+com\example\demo\Models\Proyectos.class
+com\example\demo\Models\Tareas.class
+com\example\demo\Services\ProyectosService.class
+com\example\demo\Controller\UsuariosController.class
+com\example\demo\Controller\ProyectosController.class
+com\example\demo\Repositories\UsuariosRepository.class
+com\example\demo\Controller\TareasController.class
+com\example\demo\Models\Usuarios.class
+com\example\demo\Services\UsuariosService.class
