@@ -191,7 +191,7 @@ public class mainViewController {
         
         try {
             conn = mySQLFactory.getConnection();
-            
+            conn.commit();  //necesario para traerse la BD actualizada, si esta se actualia desde otras fuentes
             listModelTareas.clear();
             
             tareDAO.getAllTareas(conn, listModelTareas);
@@ -430,7 +430,7 @@ public class mainViewController {
         
         try {
             conn = mySQLFactory.getConnection();
-            
+            conn.commit();  //necesario para traerse la BD actualizada, si esta se actualia desde otras fuentes
             listModelProyectos.clear();
             
             proyDAO.getAllProyectos(conn, listModelProyectos);
@@ -675,6 +675,7 @@ public class mainViewController {
         
         try {
             conn = mySQLFactory.getConnection();
+            conn.commit();  //necesario para traerse la BD actualizada, si esta se actualia desde otras fuentes
             
             listModelUsuarios.clear();
             

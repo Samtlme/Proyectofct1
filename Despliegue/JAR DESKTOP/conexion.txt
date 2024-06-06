@@ -1,0 +1,1 @@
+el JAR conecta contra 127.0.0.1 en el puerto 3306 y con root root como login.
